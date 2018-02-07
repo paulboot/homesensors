@@ -26,7 +26,7 @@ prog = os.path.basename(__file__)
 debug = False    # Do not set to true,  will be reassigned by command line argument --debug
 
 log = logging.getLogger(prog)
-logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.INFO)
+logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', datefmt='%m/%d/%Y %H:%M:%S', level=logging.INFO)
 log.info('Start logging')
 
 def timenownano():
@@ -80,7 +80,7 @@ def getdata(URL):
     if searchObj:
         return searchObj.group(1)
     else:
-        log.error("ERROR: Format in getdata not valid return None")
+        log.error("Format in getdata not valid return None")
         return None
 
 def main():
